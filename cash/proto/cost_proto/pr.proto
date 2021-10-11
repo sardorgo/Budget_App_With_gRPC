@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package cost_proto;
+
+option go_package = "github.com/sardorgo/app/proto/cost_proto";
+
+service Cost {
+    rpc CreateCost (CreateCostRequest) returns (CostProfile) {}
+}
+
+message CostProfile {
+    string id = 1;
+    int64 amount = 2;
+    string summary = 3;
+    string user_id = 4;
+}
+
+message CreateCostRequest {
+    CostProfile cost_profile = 1;
+}
+
